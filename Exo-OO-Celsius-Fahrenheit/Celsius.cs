@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Exo_OO_Celsius_Fahrenheit
 {
-    internal struct Celsius
+    internal class Celsius
     {
-        public double temperature;
+        public double Temperature { get; set; }
 
-        public Fahrenheit ToFahrenheit()
+        public static implicit operator Fahrenheit(Celsius c)
         {
-            Fahrenheit f;
-            f.temperature = (temperature * 9 / 5) + 32;
+            Fahrenheit f = new Fahrenheit();
+            f.Temperature = (c.Temperature * 9 / 5) + 32;
             return f;
         }
     }
